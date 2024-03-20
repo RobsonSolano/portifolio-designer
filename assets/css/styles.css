@@ -12646,9 +12646,7 @@ footer.bg-dark a:hover {
 
 #page-not-found .titulo-not-found {
 	font-size: 200px;
-	background: linear-gradient(to right, #f8f8f8, #d42536) !important;
-	-webkit-background-clip: text !important;
-	-webkit-text-fill-color: transparent;
+	color: #f8f8f8;
 	font-weight: 900;
 }
 

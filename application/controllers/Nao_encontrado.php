@@ -15,6 +15,7 @@ class Nao_encontrado extends CI_Controller
 	{
 		$data['title'] = "Página não encontrada";
 		$data['modulo'] = 'not_found';
+		$data['hide_whatsapp'] = true;
 		$this->load->view('partials/view_header', $data);
 		$this->load->view('partials/view_navigation');
 		$this->load->view('view_pagina_nao_encontrada');

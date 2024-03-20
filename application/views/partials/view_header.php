@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js/dist/css/lightgallery.min.css">
 
 	<!-- Core theme CSS (includes Bootstrap)-->
-	<link href="<?php echo base_url('assets/css/styles.css') ?>" rel="stylesheet" />
+	<link href="<?php echo base_url('assets/css/styles.css?v2') ?>" rel="stylesheet" />
 	<link href="<?php echo base_url('assets/css/lightslider.css') ?>" rel="stylesheet" />
 
 </head>
