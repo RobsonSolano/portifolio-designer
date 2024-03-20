@@ -10,7 +10,7 @@
 				<li class="nav-item "><a class="nav-link <?php echo $modulo == 'inicio' ? 'active' : '' ?>" href="<?php echo base_url() ?>">Início</a></li>
 				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('#sobre') ?>">Sobre</a></li>
 				<li class="nav-item"><a class="nav-link <?php echo $modulo == 'projetos' ? 'active' : '' ?>" href="<?php echo base_url('#projetos') ?>">Projetos</a></li>
-				<li class="nav-item"><a class="nav-link <?php echo $modulo == 'contato' ? 'active' : '' ?>" href="<?php echo base_url('contato') ?>">Contato</a></li>
+				<li class="nav-item"><a class="nav-link <?php echo $modulo == 'contato' ? 'active' : '' ?>" href="<?php echo base_url('#contato') ?>">Contato</a></li>
 				<li class="nav-item d-flex align-items-center pt-2 ms-0">
 					<div class="form-check form-switch ">
 						<label class="form-check-label" for="flexSwitchCheckChecked">

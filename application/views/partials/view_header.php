@@ -15,6 +15,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
 	<!-- Bootstrap icons-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js/dist/css/lightgallery.min.css">
+
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="<?php echo base_url('assets/css/styles.css') ?>" rel="stylesheet" />
 	<link href="<?php echo base_url('assets/css/lightslider.css') ?>" rel="stylesheet" />

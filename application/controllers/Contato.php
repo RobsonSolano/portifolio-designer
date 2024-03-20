@@ -31,7 +31,7 @@ class Contato extends CI_Controller
 		$data['title'] = "Designer Mayara Ferreira  - Contato";
 		$data['modulo'] = 'contato';
 
-		if(!empty($form_erros)){
+		if (!empty($form_erros)) {
 			$data['error'] = $form_erros;
 		}
 
@@ -66,7 +66,7 @@ class Contato extends CI_Controller
 			'mensagem',
 			'Mensagem',
 			'trim|required|min_length[8]',
-			array('required' => 'O campo %s é obrigatório','min_length[8]' => 'O campo %s precisa ter pelo menos 8 caracteres')
+			array('required' => 'O campo %s é obrigatório', 'min_length[8]' => 'O campo %s precisa ter pelo menos 8 caracteres')
 		);
 
 		if ($this->form_validation->run() == FALSE) {
@@ -74,8 +74,9 @@ class Contato extends CI_Controller
 			$form_errors = $this->form_validation->error_array();
 			$this->index($form_errors);
 		} else {
+			$item = $this->input->post();
 
-			if (!$this->send()) {
+			if (!$this->send($item)) {
 				$this->session->set_flashdata('flash_message', ['mensagem' => '<strong>Não foi possível enviar o contato.</strong><br>Verifique os campos e tente novamente', 'tipo' => 'warning']);
 			} else {
 				$this->session->set_flashdata('flash_message', ['mensagem' => '<strong>Contato enviado com sucesso</strong><br>Em breve retornarei seu contato', 'tipo' => 'success']);
@@ -85,48 +86,35 @@ class Contato extends CI_Controller
 		}
 	}
 
-	function send($email = "mah.rferreiira@hotmail.com", $nome = "Mayara Ferreira", $subject = "Novo contato pelo seu site")
+	function send($data = [], $email = "mdesigner044@gmail.com", $nome = "MF Designer Site", $subject = "Novo contato pelo seu site")
 	{
-		// Load PHPMailer library
-		$this->load->library('phpmailer_lib');
 
-		// PHPMailer object
-		$mail = $this->phpmailer_lib->load();
+		$this->email->from($email, $nome);
 
-		// SMTP configuration
-		$mail->isSMTP();
-		$mail->Host       = $this->email->smtp_host;
-		$mail->SMTPAuth   = true;
-		$mail->Username   = $this->email->smtp_user;
-		$mail->Password   = $this->email->smtp_pass;
-		$mail->SMTPSecure = 'tls';
-		$mail->Port       = $this->email->smtp_port;
-		$mail->charSet    = $this->email->charset;
+		$this->email->to($email);
 
-		$mail->setFrom($this->email->smtp_user, 'MF Designer');
+		$this->email->subject($subject);
 
-		// Define o destinatário
-		$mail->addAddress($email, $nome);
-
-		// Email subject
-		$mail->Subject = $subject;
-
-		// Set email format to HTML
-		$mail->isHTML(true);
-
-		$data = $this->input->post();
+		$data = [
+			'nome' => $data['nome'],
+			'email' => $data['email'],
+			'celular' => $data['celular'],
+			'mensagem' => $data['mensagem']
+		];
 
 		// Email body content
-		$mailContent = $this->load->view('partials/email/view_contato', $data, true);
+		$this->email->message($this->load->view('partials/email/view_contato', $data, true));
 
+		if (!$this->email->send()) {
 
-		$mail->Body = $mailContent;
-
-		// Send email
-		if (!$mail->send()) {
+			if (ENVIRONMENT == 'development') {
+				var_dump($this->email->print_debugger());
+				exit;
+			}
 			return false;
+		} else {
+			return true;
 		}
 
-		return true;
 	}
 }

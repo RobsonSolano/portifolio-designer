@@ -2395,6 +2395,12 @@ textarea.form-control-lg {
     padding-left: 2.5em;
 }
 
+@media (max-width: 900px){
+	.form-switch {
+		padding-left: 0 !important;
+	}
+}
+
 .form-switch .form-check-input {
     width: 2em;
     margin-left: -2.5em;
@@ -12275,6 +12281,7 @@ html {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+	filter: drop-shadow(0px 0px 43px #e21e80);
 }
 
 .profile .dots-1 {
@@ -12511,8 +12518,8 @@ footer.bg-dark a:hover {
 #whatsapp-flutuante {
     position: fixed;
     content: "";
-    right: 5em;
-    bottom: 5em;
+    right: 2.5em;
+    bottom: 3em;
 }
 
 .card-servicos {
@@ -12531,8 +12538,12 @@ footer.bg-dark a:hover {
 }
 
 .card-servicos:hover {
-    border: 1px solid #a16af7;
+    border: 1px solid #a16af7 !important;
     transition: .3s;
+}
+
+.card-servicos .text-muted{
+	color: #C0C0C8 !important;
 }
 
 @media (max-width:900px) {
@@ -12549,4 +12560,8 @@ footer.bg-dark a:hover {
 
 .depoimento-image {
     max-width: 400px;
+}
+
+.lSSlideOuter .lSPager.lSpg > li {
+    filter: brightness(2);
 }

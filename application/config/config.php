@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://php74.nano.docker/_estudos/pessoais/portifolio';
+$config['base_url'] = 'https://php74.nano.docker/_estudos/pessoais/portifolio-mayara';
 
 /*
 |--------------------------------------------------------------------------
